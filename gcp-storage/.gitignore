@@ -1,0 +1,9 @@
+# Terraform files
+.terraform
+terraform.tfstate
+terraform.tfvars
+.terraform.lock.hcl
+terraform.tfstate.backup
+credentials.json
+variables.tf
+*.tfstate*

@@ -15,12 +15,12 @@ provider "google" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "terraform-gcp-network"
+  name = "example-terraform"
 }
 
-resource "google_compute_firewall" "terraform-network" {
+resource "google_compute_firewall" "terraform-gcp-network" {
   name     = "terraform-gcp-firewall"
-  network  = "terraform-gcp-network"
+  network  = "example-terraform"
   priority = 10000
   direction = "INGRESS"
   source_ranges = ["0.0.0.0/0" , "192.168.2.0/24"]
@@ -34,12 +34,9 @@ resource "google_compute_firewall" "terraform-network" {
 
 }
 
-resource "google_compute_network" "terraform-gcp-network" {
-  name = "terraform-gcp-network"
-}
 
 resource "google_compute_instance" "vm_instance" {
-  name         = "terraform-gcp-server"
+  name         = "gcp-server-terraform"
   machine_type = "e2-medium"
   tags = ["http"]
 
